@@ -9,8 +9,7 @@ public class Main {
         g.ajouterArc("C", "A", 19);
         g.ajouterArc("A", "B", 12);
         g.ajouterArc("A", "D", 87);
-        g.ajouterArc("E", "D", 43);
-        System.out.println(g.listeNoeuds());
-        System.out.println(g.suivants("D"));
+
+        System.out.println(g.ToString());
     }
 }

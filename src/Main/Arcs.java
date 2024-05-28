@@ -16,4 +16,12 @@ public class Arcs {
     public List<Arc> getArcs() {
         return this.arcs;
     }
+
+    public String ToString() {
+        String res = "";
+        for (Arc a : this.arcs) {
+            res += a.ToString() + " ";
+        }
+        return res;
+    }
 }

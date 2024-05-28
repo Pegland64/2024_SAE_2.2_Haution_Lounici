@@ -36,4 +36,14 @@ public class GrapheListe implements Graphe{
         }
         return this.adjacence.get(i).getArcs();
     }
+
+    public String ToString() {
+        String res = "";
+        for (int i = 0; i < this.noeuds.size(); i++) {
+            res += this.noeuds.get(i) + " -> " + this.adjacence.get(i).ToString() + "\n";
+        }
+        return res;
+    }
+
+
 }
