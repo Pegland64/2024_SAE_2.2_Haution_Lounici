@@ -1,14 +1,18 @@
 package Main;
 
+import Main.Arc;
+import Main.Arcs;
+import Main.Graphe;
+
 import java.util.*;
 
-public class GrapheListe implements Graphe{
+public class GrapheListe implements Graphe {
     ArrayList<String> noeuds;
     ArrayList<Arcs> adjacence;
 
     public GrapheListe() {
-        this.noeuds = new ArrayList<String>();
-        this.adjacence = new ArrayList<Arcs>();
+        this.noeuds = new ArrayList<>();
+        this.adjacence = new ArrayList<>();
     }
 
     public int getIndice(String n) {
@@ -22,8 +26,16 @@ public class GrapheListe implements Graphe{
             this.adjacence.add(new Arcs());
             i = this.noeuds.size() - 1;
         }
+
+        int j = this.getIndice(destination);
+        if (j == -1) {
+            this.noeuds.add(destination);
+            this.adjacence.add(new Arcs());
+        }
+
         this.adjacence.get(i).ajouterArc(new Arc(destination, cout));
     }
+
 
     public List<String> listeNoeuds() {
         return this.noeuds;
@@ -38,12 +50,10 @@ public class GrapheListe implements Graphe{
     }
 
     public String ToString() {
-        String res = "";
+        StringBuilder res = new StringBuilder();
         for (int i = 0; i < this.noeuds.size(); i++) {
-            res += this.noeuds.get(i) + " -> " + this.adjacence.get(i).ToString() + "\n";
+            res.append(this.noeuds.get(i)).append(" -> ").append(this.adjacence.get(i).toString()).append("\n");
         }
-        return res;
+        return res.toString();
     }
-
-
 }
