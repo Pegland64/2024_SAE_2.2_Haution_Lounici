@@ -1,0 +1,14 @@
+Fonction pointFixe(Graphe g InOut, Noeud depart)
+    // Initialisation
+    Pour chaque Noeud n dans g.getNoeuds()
+        n -> +infini
+    FinPour
+
+    depart -> 0
+
+    nbIterations -> 0
+    tant que g2!=g alors
+        pour i de 0 à g.getNbNoeuds()-1 faire
+            g2.ajouterArcs
+        finPour
+

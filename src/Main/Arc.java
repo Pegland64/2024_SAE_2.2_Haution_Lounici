@@ -9,6 +9,14 @@ public class Arc {
         this.cout = cout;
     }
 
+    public String getDest() {
+        return this.dest;
+    }
+
+    public double getCout() {
+        return this.cout;
+    }
+
     public String ToString() {
         return this.dest + "(" + this.cout + ")";
     }
