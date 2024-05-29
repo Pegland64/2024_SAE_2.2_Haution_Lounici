@@ -1,14 +1,36 @@
 Fonction pointFixe(Graphe g InOut, Noeud depart)
-    // Initialisation
-    Pour chaque Noeud n dans g.getNoeuds()
-        n -> +infini
-    FinPour
+    // On créer un graphe g2 contenant tout les antecedant de chacun des noeuds
+    t -> false;
+    g2 -> new Graphe();
+    pour i de 1 à g.listeNoeuds().size() faire
+        pour j de 1 à g.successeurs(g.noeuds.get(i)).size() faire
+            g2.ajouterArc(g.successeurs(g.noeuds.get(i)).getDest(), g.getNoeud(), g.successeurs(g.noeuds.get(i)).getcout());
 
-    depart -> 0
+            //si le noeud n'as pas d'antecedant alors on lui ajoute un arc vers lui meme
 
-    nbIterations -> 0
-    tant que g2!=g alors
-        pour i de 0 à g.getNbNoeuds()-1 faire
-            g2.ajouterArcs
-        finPour
+            si g.successeurs(g.noeuds.get(i)).getDest() == depart alors
+                t = true;
+            fin si
+
+        fin pour
+    fin pour
+
+    si t == false alors
+        g2.ajouterArc(depart, depart, 0);
+    fin si
+
+    // Boucle principale
+    //on verifie qu'on a atteint le point fixe en comparant g3 et g2 si ils sont identique cela veut dire que apres l'algroithme le graphe reste le meme
+    p -> g2.IndexOf(g2.getNoeud(depart));
+    g3 -> new Graphe();
+    tant que g3!=g2 faire
+        g3 -> g2;
+        pour i de 1 à g2.getNoeuds().size() faire
+
+
+
+
+
+
+Fonction pointFixe(Graphe g InOut, Noeud depart)
 
