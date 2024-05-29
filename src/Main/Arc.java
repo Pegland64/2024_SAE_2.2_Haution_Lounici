@@ -1,8 +1,8 @@
 package Main;
 
 public class Arc {
-    private String dest;
     private double cout;
+    private String dest;
 
     public Arc(String dest, double cout) {
         this.dest = dest;
@@ -19,5 +19,9 @@ public class Arc {
 
     public String ToString() {
         return this.dest + "(" + this.cout + ")";
+    }
+
+    public boolean estEgalA (Arc arc) {
+        return this.dest.equals(arc.getDest()) && this.cout == arc.getCout();
     }
 }

@@ -56,4 +56,15 @@ public class GrapheListe implements Graphe {
         }
         return res.toString();
     }
+
+    public boolean containsArc(Arc arc) {
+        for (Arcs arcsList : this.adjacence) {
+            for(Arc arcList : arcsList.getArcs()) {
+                if (arcList.estEgalA(arc)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }
