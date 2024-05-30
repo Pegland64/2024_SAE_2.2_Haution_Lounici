@@ -1,8 +1,6 @@
 package Main;
 
-import java.util.Map;
-import java.util.TreeMap;
-import java.util.List;
+import java.util.*;
 
 /**
  * Classe fournie, permet de stocker des valeurs associées au noeud et des parents
@@ -86,7 +84,19 @@ public class Valeur {
             res += s + " ->  V:" + valeurNoeud + " p:" + noeudParent + "\n";
         }
         return res;
+    }
 
+    public List<String> calculerChemin(String destination) {
+        List<String> chemin = new ArrayList<>();
+        String noeudActuel = destination;
+
+        while (noeudActuel != null) {
+            chemin.add(noeudActuel);
+            noeudActuel = getParent(noeudActuel);
+        }
+
+        Collections.reverse(chemin);
+        return chemin;
     }
 
 }

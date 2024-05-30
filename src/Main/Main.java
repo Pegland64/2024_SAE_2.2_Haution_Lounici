@@ -1,5 +1,7 @@
 package Main;
 
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
         GrapheListe g = new GrapheListe();
@@ -14,5 +16,9 @@ public class Main {
 
         Valeur v = BellmanFord.resoudre(g, "D");
         System.out.println(v.toString());
+
+        List<String> l = v.calculerChemin("A");
+        System.out.println(l.toString());
+
     }
 }
