@@ -12,8 +12,7 @@ public class Main {
 
         System.out.println(g.ToString());
 
-        Valeur v = new Valeur();
-        v =v.resoudre(g, "D");
+        Valeur v = BellmanFord.resoudre(g, "D");
         System.out.println(v.toString());
     }
 }

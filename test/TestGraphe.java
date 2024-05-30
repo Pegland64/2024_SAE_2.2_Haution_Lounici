@@ -1,4 +1,5 @@
 
+import Main.Valeur;
 import org.junit.jupiter.api.Test;
 import Main.Arc;
 import Main.GrapheListe;
@@ -61,7 +62,4 @@ public class TestGraphe {
         List<Arc> arcsE = graphe.suivants("E");
         assertEquals(0, arcsE.size());
     }
-
-    @Test
-    public void
 }
