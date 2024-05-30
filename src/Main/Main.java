@@ -14,7 +14,8 @@ public class Main {
 
         System.out.println(g.ToString());
 
-        Valeur v = BellmanFord.resoudre(g, "D");
+        BellmanFord bellmanFord = new BellmanFord();
+        Valeur v = bellmanFord.resoudre(g, "D");
         System.out.println(v.toString());
 
         List<String> l = v.calculerChemin("A");

@@ -2,8 +2,8 @@ package Main;
 
 import java.util.List;
 
-public class BellmanFord {
-    public static Valeur resoudre(Graphe g, String depart) {
+public class BellmanFord implements Algorithme{
+    public Valeur resoudre(Graphe g, String depart) {
         // initialisation
         Valeur v = new Valeur();
         List<String> noeuds = g.listeNoeuds();
