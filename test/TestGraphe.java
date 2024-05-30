@@ -61,4 +61,7 @@ public class TestGraphe {
         List<Arc> arcsE = graphe.suivants("E");
         assertEquals(0, arcsE.size());
     }
+
+    @Test
+    public void 
 }
