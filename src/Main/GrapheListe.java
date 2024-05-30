@@ -52,7 +52,7 @@ public class GrapheListe implements Graphe {
     public String ToString() {
         StringBuilder res = new StringBuilder();
         for (int i = 0; i < this.noeuds.size(); i++) {
-            res.append(this.noeuds.get(i)).append(" -> ").append(this.adjacence.get(i).toString()).append("\n");
+            res.append(this.noeuds.get(i)).append(" -> ").append(this.adjacence.get(i).ToString()).append("\n");
         }
         return res.toString();
     }

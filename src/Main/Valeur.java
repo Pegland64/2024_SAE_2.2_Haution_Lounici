@@ -1,4 +1,5 @@
-import java.util.ArrayList;
+package Main;
+
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.List;
@@ -86,6 +87,31 @@ public class Valeur {
         }
         return res;
 
+    }
+
+    public Valeur resoudre(Graphe g, String depart) {
+        // initialisation
+        Valeur v = new Valeur();
+        List<String> noeuds = g.listeNoeuds();
+        for (String n : noeuds) {
+            v.setValeur(n, Double.POSITIVE_INFINITY);
+            v.setParent(n, null);
+        }
+        v.setValeur(depart, 0);
+
+        for (int i = 0; i < noeuds.size(); i++) {
+            for (String n : noeuds) {
+                List<Arc> suivants = g.suivants(n);
+                for (Arc a : suivants) {
+                    double cout = v.getValeur(n) + a.getCout();
+                    if (cout < v.getValeur(a.getDest())) {
+                        v.setValeur(a.getDest(), cout);
+                        v.setParent(a.getDest(), n);
+                    }
+                }
+            }
+        }
+        return v;
     }
 
 }

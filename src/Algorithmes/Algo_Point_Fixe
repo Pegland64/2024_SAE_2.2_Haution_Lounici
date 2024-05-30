@@ -1,5 +1,5 @@
-Fonction pointFixe(Graphe g InOut, Noeud depart)
-    v = new Valeur()
+Fonction pointFixe(Graphe g, Noeud depart)
+    v -> new Main.Valeur()
     Pour chaque n dans g.listeNoeuds() faire
         v.setValeur(n, +infini)
         v.setParent(n, null)
@@ -29,7 +29,7 @@ FinFonction
 
 lexique :
     Grpahe g : le graphique de base
-    Valeur v : le tableau de valeurs
+    Main.Valeur v : le tableau de valeurs
     Noeud depart, n, voisin : la classe noeud n'existant pas ceci est l'equivalent d'un String
     Arc a : les arcs suivant le noeud que l'on etudie
     Entier nouvelleValeur : variable temporaire pour modifier la valeur si elle est plus courte

@@ -11,5 +11,9 @@ public class Main {
         g.ajouterArc("A", "D", 87);
 
         System.out.println(g.ToString());
+
+        Valeur v = new Valeur();
+        v =v.resoudre(g, "D");
+        System.out.println(v.toString());
     }
 }
