@@ -1,8 +1,7 @@
+package Main;
 
-import Main.Valeur;
 import org.junit.jupiter.api.Test;
-import Main.Arc;
-import Main.GrapheListe;
+
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
