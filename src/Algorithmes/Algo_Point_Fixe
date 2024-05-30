@@ -1,36 +1,36 @@
 Fonction pointFixe(Graphe g InOut, Noeud depart)
-    // On créer un graphe g2 contenant tout les antecedant de chacun des noeuds
-    t -> false;
-    g2 -> new Graphe();
-    pour i de 1 à g.listeNoeuds().size() faire
-        pour j de 1 à g.successeurs(g.noeuds.get(i)).size() faire
-            g2.ajouterArc(g.successeurs(g.noeuds.get(i)).getDest(), g.getNoeud(), g.successeurs(g.noeuds.get(i)).getcout());
+    v = new Valeur()
+    Pour chaque n dans g.listeNoeuds() faire
+        v.setValeur(n, +infini)
+        v.setParent(n, null)
+    FinPour
 
-            //si le noeud n'as pas d'antecedant alors on lui ajoute un arc vers lui meme
-
-            si g.successeurs(g.noeuds.get(i)).getDest() == depart alors
-                t = true;
-            fin si
-
-        fin pour
-    fin pour
-
-    si t == false alors
-        g2.ajouterArc(depart, depart, 0);
-    fin si
+    v.setValeur(depart, 0)
 
     // Boucle principale
-    //on verifie qu'on a atteint le point fixe en comparant g3 et g2 si ils sont identique cela veut dire que apres l'algroithme le graphe reste le meme
-    p -> g2.IndexOf(g2.getNoeud(depart));
-    g3 -> new Graphe();
-    tant que g3!=g2 faire
-        g3 -> g2;
-        pour i de 1 à g2.getNoeuds().size() faire
+    valeurModifiee -> true
+    Tant que valeurModifiee est vrai faire
+        valeurModifiee -> false
+        Pour chaque n dans g.listeNoeuds()
+            Pour chaque a dans g.suivants(n)
+                voisin -> a.getDest()
+                nouvelleValeur -> v.getValeur(n) + a.getDist()
+                Si nouvelleValeur < v.getValeur(voisin) Alors
+                    v.setValeur(voisin, nouvelleValeur)
+                    v.setParent(voisin, n)
+                    valeurModifiee -> true
+                FinSi
+            FinPour
+        FinPour
+    FinTantQue
 
+    Retourner v
+FinFonction
 
-
-
-
-
-Fonction pointFixe(Graphe g InOut, Noeud depart)
-
+lexique :
+    Grpahe g : le graphique de base
+    Valeur v : le tableau de valeurs
+    Noeud depart, n, voisin : la classe noeud n'existant pas ceci est l'equivalent d'un String
+    Arc a : les arcs suivant le noeud que l'on etudie
+    Entier nouvelleValeur : variable temporaire pour modifier la valeur si elle est plus courte
+    Booléen valeurModifiee : cette variable permet de savoir si une valeur a été modifiée et donc si le point fixe est atteint ou pas

@@ -7,8 +7,8 @@ import Main.Graphe;
 import java.util.*;
 
 public class GrapheListe implements Graphe {
-    ArrayList<String> noeuds;
-    ArrayList<Arcs> adjacence;
+    private ArrayList<String> noeuds;
+    private ArrayList<Arcs> adjacence;
 
     public GrapheListe() {
         this.noeuds = new ArrayList<>();
