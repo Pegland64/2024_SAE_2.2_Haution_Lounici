@@ -34,6 +34,7 @@ public class GrapheListe implements Graphe {
     public GrapheListe(String filepath) {
         this.adjacence = new ArrayList<>();
         this.noeuds = new ArrayList<>();
+        //on lit et on ajoute les arcs du fichier
         try {
             BufferedReader reader = new BufferedReader(new FileReader(filepath));
             String line;
@@ -69,18 +70,19 @@ public class GrapheListe implements Graphe {
 
     public void ajouterArc(String depart, String destination, double cout) {
         int i = this.getIndice(depart);
+        //on verifie si le noeud de depart est deja present
         if (i == -1) {
             this.noeuds.add(depart);
             this.adjacence.add(new Arcs());
             i = this.noeuds.size() - 1;
         }
-
+        //on verifie si le noeud de destination est deja present
         int j = this.getIndice(destination);
         if (j == -1) {
             this.noeuds.add(destination);
             this.adjacence.add(new Arcs());
         }
-
+        //on ajooute l'arc
         this.adjacence.get(i).ajouterArc(new Arc(destination, cout));
     }
 
@@ -128,6 +130,7 @@ public class GrapheListe implements Graphe {
      */
 
     public boolean containsArc(Arc arc) {
+        //on parcourt la liste d'adjacence pour voir si l'arc est present
         for (Arcs arcsList : this.adjacence) {
             for(Arc arcList : arcsList.getArcs()) {
                 if (arcList.estEgalA(arc)) {
