@@ -9,14 +9,27 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
+/**
+ * La classe GrapheListe représente un graphe sous forme de liste d'adjacence.
+ */
+
 public class GrapheListe implements Graphe {
     private ArrayList<String> noeuds;
     private ArrayList<Arcs> adjacence;
+
+    /**
+     * Constructeur de la classe GrapheListe.
+     */
 
     public GrapheListe() {
         this.noeuds = new ArrayList<>();
         this.adjacence = new ArrayList<>();
     }
+
+    /**
+     * Constructeur de la classe GrapheListe a partir d'un fichier texte.
+     * @param filepath Le chemin du fichier contenant le graphe.
+     */
 
     public GrapheListe(String filepath) {
         this.adjacence = new ArrayList<>();
@@ -37,9 +50,22 @@ public class GrapheListe implements Graphe {
         }
     }
 
+    /**
+     * Retourne l'indice d'un noeud dans la liste des noeuds.
+     * @param n Le noeud dont on veut l'indice.
+     * @return L'indice du noeud.
+     */
+
     public int getIndice(String n) {
         return this.noeuds.indexOf(n);
     }
+
+    /**
+     * Ajoute un arc au graphe.
+     * @param depart Le noeud de départ de l'arc.
+     * @param destination Le noeud de destination de l'arc.
+     * @param cout Le coût de l'arc.
+     */
 
     public void ajouterArc(String depart, String destination, double cout) {
         int i = this.getIndice(depart);
@@ -59,9 +85,20 @@ public class GrapheListe implements Graphe {
     }
 
 
+    /**
+     * Retourne la liste des noeuds du graphe.
+     * @return La liste des noeuds du graphe.
+     */
+
     public List<String> listeNoeuds() {
         return this.noeuds;
     }
+
+    /**
+     * Retourne la liste des arcs suivants d'un noeud donné.
+     * @param n Le noeud dont on veut obtenir les arcs suivants.
+     * @return La liste des arcs suivants du noeud.
+     */
 
     public List<Arc> suivants(String n) {
         int i = this.getIndice(n);
@@ -71,6 +108,11 @@ public class GrapheListe implements Graphe {
         return this.adjacence.get(i).getArcs();
     }
 
+    /**
+     * Retourne une représentation du graphe sous forme de String.
+     * @return Une chaîne représentant le graphe.
+     */
+
     public String ToString() {
         StringBuilder res = new StringBuilder();
         for (int i = 0; i < this.noeuds.size(); i++) {
@@ -78,6 +120,12 @@ public class GrapheListe implements Graphe {
         }
         return res.toString();
     }
+
+    /**
+     * Vérifie si un arc est présent dans le graphe.
+     * @param arc L'arc à vérifier.
+     * @return true si l'arc est présent.
+     */
 
     public boolean containsArc(Arc arc) {
         for (Arcs arcsList : this.adjacence) {

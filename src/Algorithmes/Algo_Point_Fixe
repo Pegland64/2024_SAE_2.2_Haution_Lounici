@@ -1,4 +1,5 @@
 Fonction pointFixe(Graphe g, Noeud depart)
+    // On créer un tableau de type Valeur qui met toutes les valeurs à +infini sauf pour le départ qui est à 0
     v -> new Main.Valeur()
     Pour chaque n dans g.listeNoeuds() faire
         v.setValeur(n, +infini)
@@ -7,7 +8,8 @@ Fonction pointFixe(Graphe g, Noeud depart)
 
     v.setValeur(depart, 0)
 
-    // Boucle principale
+    // On parcourt tous les noeuds et on regarde si on peut améliorer la valeur de leur voisin
+    // valeurModifiee permet de savoir si on a modifié une valeur ou pas et donc savoir si on a atteint le point fixe ou non
     valeurModifiee -> true
     Tant que valeurModifiee est vrai faire
         valeurModifiee -> false

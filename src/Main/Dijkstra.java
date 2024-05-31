@@ -3,6 +3,11 @@ package Main;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * La classe Dijkstra implémente l'interface Algorithme.
+ * Elle utilise l'algorithme de Dijkstra pour résoudre le problème du plus court chemin.
+ */
+
 public class Dijkstra implements Algorithme{
     /**
      * Entrées :
@@ -31,6 +36,13 @@ public class Dijkstra implements Algorithme{
      *   Fin Pour
      * Fin Tant que
      * Fin
+     */
+
+    /**
+     * Résout le problème du plus court chemin en utilisant l'algorithme de Dijkstra.
+     * @param graphe Le graphe à traiter.
+     * @param depart Le noeud de départ.
+     * @return Un objet de type Valeur qui contient les valeurs et les parents de chaque noeud.
      */
 
     public Valeur resoudre(Graphe graphe, String depart) {
