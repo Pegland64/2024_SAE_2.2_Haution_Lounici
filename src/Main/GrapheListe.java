@@ -4,6 +4,9 @@ import Main.Arc;
 import Main.Arcs;
 import Main.Graphe;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.*;
 
 public class GrapheListe implements Graphe {
@@ -13,6 +16,25 @@ public class GrapheListe implements Graphe {
     public GrapheListe() {
         this.noeuds = new ArrayList<>();
         this.adjacence = new ArrayList<>();
+    }
+
+    public GrapheListe(String filepath) {
+        this.adjacence = new ArrayList<>();
+        this.noeuds = new ArrayList<>();
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(filepath));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split("\t");
+                String noeud1 = parts[0];
+                String noeud2 = parts[1];
+                int cout = Integer.parseInt(parts[2]);
+                this.ajouterArc(noeud1, noeud2, cout);
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public int getIndice(String n) {

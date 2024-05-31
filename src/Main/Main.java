@@ -21,5 +21,8 @@ public class Main {
         List<String> l = v.calculerChemin("A");
         System.out.println(l.toString());
 
+        GrapheListe g2 = new GrapheListe("C:/Users/pegla/OneDrive/Bureau/SAE 2.2/2024_SAE_2.2_Haution_Lounici/src/Ex_Graphe/Graphe1.txt");
+        System.out.println(g2.ToString());
+
     }
 }
